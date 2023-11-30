@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eubie's URL Tracker</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1>Eubie's URL Tracker</h1>
+  <form id="custom-chrome-ext-form">
+    <input type="text" id="input-el">
+    <button type="submit" id="save-btn">Save Input</button>
+    <button type="button" id="saveTab-btn">Save Tab</button>
+    <button type="button" id="delete-btn">Delete All</button>
+  </form>
+  <ul id="ul-el" class="ul-el">
+  </ul>
+
+<div id="overlay"></div>
+<div id="custom-prompt">
+  <span class="prompt-label" id="prompt-label"></span>
+  <div class="prompt-button-wrapper">
+    <button class="inmodal-yes-btn" id="inmodal-yes-btn">Ok</button>
+    <button class="inmodal-cancel-btn" id="inmodal-cancel-btn">Cancel</button>
+  </div>
+</div>
+
+</body>
+<script src="index.js"></script>
+</html>
