@@ -13,6 +13,13 @@ const deleteTrackedUrlHash = '53qqyP1InJYXSNm/wRiqksP6hEB2Zy7nwmFJAlqiwv4=%';
 
 // Class Types
 
+  /**
+   * Constructor function for creating an instance of the Modal class.
+   *
+   * @param {string} type - The type of the modal.
+   * @param {string} message - The message to be displayed in the modal.
+   * @throws {Error} Throws an error if type or message is not provided.
+   */
 class Modal {
   constructor(type, message) {
     if (!type || !message) {
@@ -87,6 +94,13 @@ saveTabBtn.addEventListener('click', function() {
 inModalCancelBtn.addEventListener('click', hideCustomPrompt);
 
 // API's
+
+/**
+ * Retrieves the URL of the active tab in the current window.
+ *
+ * @return {Promise<string>} A Promise that resolves with the URL of the active tab,
+ * or rejects with an error message if no active tab is found.
+ */
 function getActiveTab() {
   return new Promise(function(resolve, reject) {
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
@@ -105,11 +119,23 @@ if (storedTrackedUrls) {
   renderTrackedUrls(trackedUrls);
 }
 
+/**
+ * Handles the form submission event.
+ *
+ * @param {Event} event - The form submission event.
+ * @return {undefined} This function does not return a value.
+ */
 function handleForm(event) {
   event.preventDefault();
   saveInput();
 }
 
+/**
+ * Saves the input value to local storage and updates the list of tracked URLs.
+ *
+ * @param {HTMLElement} inputEl - The input element that contains the value to be saved.
+ * @return {void} This function does not return a value.
+ */
 function saveInput() {
   // save input to local storage
   if (inputEl.value && isUrlExisting(inputEl.value) === false) {
@@ -125,6 +151,12 @@ function saveInput() {
   }
 }
 
+/**
+ * Check if a given URL exists in the trackedUrls array.
+ *
+ * @param {string} url - The URL to check.
+ * @return {boolean} Returns true if the URL exists in the trackedUrls array, otherwise returns false.
+ */
 function isUrlExisting(url) {
   return trackedUrls.indexOf(url) !== -1;
 }
